@@ -40,7 +40,6 @@ bool ObserverAble::SendEvent(MessageType msgType)
 {
     std::lock_guard<std::mutex> guard(m_mutex);
     m_tasks.push_front(std::bind(&ObserverAble::detach, this, msgType));
-
     return true;
 }
 
@@ -64,6 +63,13 @@ void ObserverAble::ThreadHandler()
             }
         }
     }
+}
+
+bool ObserverAble::PostRunable(Task task)
+{
+    std::lock_guard<std::mutex> guard(m_mutex);
+    m_tasks.push_front(task);
+    return true;
 }
 
 void ObserverAble::detach(MessageType msgType)

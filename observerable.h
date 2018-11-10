@@ -11,16 +11,17 @@
 class ObserverAble
 {
     public:
+        typedef std::function<void(void)> Task;
         static ObserverAble* GetObserverAbleInstabce();
         bool RegisterObserver(Observer *observer);
         bool SendEvent(MessageType msgType);
         void ThreadHandler();
+        bool PostRunable(Task task);
 
     private:
         void detach(MessageType msgType);
         ObserverAble();
         ~ObserverAble();
-        typedef std::function<void(void)> Task;
 
     private:
         std::list<Observer*> m_ObserverList;

@@ -17,6 +17,9 @@ bool Model::SetA(int data)
     ObserverAble::GetObserverAbleInstabce()->SendEvent(MessageType_A);
     ObserverAble::GetObserverAbleInstabce()->SendEvent(MessageType_B);
     ObserverAble::GetObserverAbleInstabce()->SendEvent(MessageType_C);
+    
+    //for test PostRunable IF
+    ObserverAble::GetObserverAbleInstabce()->PostRunable([]() { std::cout << "[Model::SetA] hello world!" << std::endl;});
 
     return true;
 

@@ -8,7 +8,7 @@ class Observer
 {
     public:
         Observer();
-        virtual~Observer();
+        virtual ~Observer();
         virtual void update(MessageType tpye) = 0;
         bool RegisterMsg(MessageType tpye);
         bool find(MessageType tpye);
