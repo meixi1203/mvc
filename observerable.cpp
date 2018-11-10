@@ -57,8 +57,8 @@ void ObserverAble::ThreadHandler()
             }
             if(!m_tasks.empty())
             {
-                task = m_tasks.front();  //从任务队列中获取最开始任务
-                m_tasks.pop_front();     //将取走的任务弹出任务队列
+                task = m_tasks.back();  //从任务队列中获取最开始任务
+                m_tasks.pop_back();     //将取走的任务弹出任务队列
                 task(); //执行任务
             }
         }
