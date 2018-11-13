@@ -4,7 +4,7 @@
 #include "controller.h"
 
 
-Application::Application():m_model(nullptr),m_view(nullptr),m_controller(nullptr)
+Application::Application():m_model(nullptr), m_view(nullptr), m_controller(nullptr)
 {
     m_model = new Model();
     m_view = new View();
@@ -49,5 +49,5 @@ bool Application::run()
         m_controller->MessageHander();
         ret = true;
     }
-     return ret;
+    return ret;
 }

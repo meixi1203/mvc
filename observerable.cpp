@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <unistd.h>
 
-ObserverAble::ObserverAble():m_running(true),m_thread(std::bind(&ObserverAble::ThreadHandler, this))
+ObserverAble::ObserverAble():m_running(true), m_thread(std::bind(&ObserverAble::ThreadHandler, this))
 {
     m_ObserverList.clear();
 }
