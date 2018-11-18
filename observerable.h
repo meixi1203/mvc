@@ -4,6 +4,7 @@
 #include "observer.h"
 #include "common.h"
 #include <list>
+#include <atomic>
 #include <mutex>
 #include <thread>
 #include <functional>
@@ -27,7 +28,7 @@ class ObserverAble
         std::list<Observer*> m_ObserverList;
         std::list<Task> m_tasks;
         std::mutex m_mutex;
-        bool m_running;
+        std::atomic<bool> m_running;
         std::thread m_thread;
 };
 
