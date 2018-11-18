@@ -4,12 +4,12 @@
 
 ObserverAble::ObserverAble():m_running(true), m_thread(std::bind(&ObserverAble::ThreadHandler, this))
 {
-    m_ObserverList.clear();
+    m_observerList.clear();
 }
 
 ObserverAble::~ObserverAble()
 {
-    m_ObserverList.clear();
+    m_observerList.clear();
 
     if(m_running)
     {
@@ -32,8 +32,8 @@ ObserverAble* ObserverAble::GetObserverAbleInstabce()
 
 bool ObserverAble::RegisterObserver(Observer *observer)
 {
-    m_ObserverList.push_back(observer);
-    return !m_ObserverList.empty();
+    m_observerList.push_back(observer);
+    return !m_observerList.empty();
 }
 
 bool ObserverAble::SendEvent(MessageType msgType)
@@ -74,7 +74,7 @@ bool ObserverAble::PostRunable(Task task)
 
 void ObserverAble::detach(MessageType msgType)
 {
-    for(std::list<Observer*>::iterator iter = m_ObserverList.begin(); iter != m_ObserverList.end(); iter++)
+    for(std::list<Observer*>::iterator iter = m_observerList.begin(); iter != m_observerList.end(); iter++)
     {
         if((*iter)->find(msgType))
         {

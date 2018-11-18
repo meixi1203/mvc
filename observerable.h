@@ -25,7 +25,7 @@ class ObserverAble
         ~ObserverAble();
 
     private:
-        std::list<Observer*> m_ObserverList;
+        std::list<Observer*> m_observerList;
         std::list<Task> m_tasks;
         std::mutex m_mutex;
         std::atomic<bool> m_running;
