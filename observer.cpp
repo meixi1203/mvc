@@ -11,16 +11,16 @@ Observer::~Observer()
 
 bool Observer::RegisterMsg(MessageType tpye)
 {
-    m_MsgType.push_back(tpye);
-    return !m_MsgType.empty();
+    m_msgType.push_back(tpye);
+    return !m_msgType.empty();
 }
 
 bool Observer::find(MessageType tpye)
 {
     bool ret = false;
-    std::list<MessageType>::iterator iter = std::find(m_MsgType.begin(), m_MsgType.end(), tpye);
+    std::list<MessageType>::iterator iter = std::find(m_msgType.begin(), m_msgType.end(), tpye);
 
-    if(iter != m_MsgType.end())
+    if(iter != m_msgType.end())
     {
         ret = true;
     }

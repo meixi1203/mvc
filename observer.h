@@ -14,7 +14,7 @@ class Observer
         bool find(MessageType tpye);
 
     private:
-        std::list<MessageType> m_MsgType;
+        std::list<MessageType> m_msgType;
 };
 
 #endif
